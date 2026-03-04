@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
@@ -12,37 +13,57 @@
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#0b0b0b;
+background:#050505;
 color:white;
-text-align:center;
 }
 
 header{
-padding:40px 20px;
+
+background:url("https://i.postimg.cc/4dJGZK5m/C%C3%B3pia_de_Red_and_White_Modern_Travel_Promotion_Instagram_Post.png");
+background-size:cover;
+background-position:center;
+
+padding:120px 20px;
+text-align:center;
+
 }
 
-h1{
-font-size:32px;
-margin-bottom:10px;
+header h1{
+
+font-size:42px;
+background:rgba(0,0,0,0.6);
+display:inline-block;
+padding:20px 40px;
+border-radius:10px;
+
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:30px;
+gap:30px;
 }
 
 .card{
-background:#141414;
-border-radius:12px;
+
+background:#111;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.7);
+
+box-shadow:0 15px 40px rgba(0,0,0,0.8);
+
 transition:0.3s;
+
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 }
 
 .card img{
@@ -51,50 +72,78 @@ height:220px;
 object-fit:cover;
 }
 
-.info{
-padding:20px;
+.card .info{
+padding:25px;
+text-align:center;
 }
 
 button{
+
 background:#00b894;
 border:none;
-padding:12px 25px;
-border-radius:6px;
+
+padding:14px 30px;
+
+border-radius:8px;
+
 color:white;
+
 font-size:16px;
+
 cursor:pointer;
+
 margin:6px;
+
+box-shadow:0 6px #007a5e;
+
 }
 
-button:hover{
-background:#019875;
-}
-
-.section{
-padding:40px 20px;
-border-top:1px solid #333;
-}
-
-input{
-width:60px;
-padding:6px;
-margin:6px;
-}
-
-.vagas{
-color:#00e676;
-font-weight:bold;
-}
-
-footer{
-padding:30px;
-font-size:14px;
-color:#bbb;
+button:active{
+transform:translateY(2px);
+box-shadow:0 2px #007a5e;
 }
 
 .voltar{
-margin-top:25px;
-background:#444;
+background:#333;
+}
+
+.section{
+
+padding:40px 20px;
+text-align:center;
+
+}
+
+input{
+
+padding:10px;
+
+border:none;
+
+border-radius:6px;
+
+margin:5px;
+
+}
+
+.vagas{
+
+color:#00ff9c;
+
+font-weight:bold;
+
+font-size:18px;
+
+}
+
+footer{
+
+text-align:center;
+
+padding:40px;
+
+color:#aaa;
+
 }
 
 </style>
@@ -107,11 +156,11 @@ background:#444;
 
 <h1>🌿 Trilheiros de Rondonópolis</h1>
 
-<p>Escolha seu próximo destino e viva uma experiência incrível na natureza</p>
-
 </header>
 
-<section class="grid" id="inicio">
+<div class="container">
+
+<div class="grid" id="inicio">
 
 <div class="card">
 
@@ -121,9 +170,13 @@ background:#444;
 
 <h2>Lagoa Azul</h2>
 
-<p>📍 Primavera do Leste – MT</p>
+<p>Primavera do Leste – MT</p>
 
-<button onclick="mostrar('lagoa')">Ver detalhes</button>
+<button onclick="mostrar('Lagoa Azul')">
+
+Ver detalhes
+
+</button>
 
 </div>
 
@@ -137,9 +190,13 @@ background:#444;
 
 <h2>Vale do Chico</h2>
 
-<p>📍 Jaciara – MT</p>
+<p>Jaciara – MT</p>
 
-<button onclick="mostrar('chico')">Ver detalhes</button>
+<button onclick="mostrar('Vale do Chico')">
+
+Ver detalhes
+
+</button>
 
 </div>
 
@@ -153,45 +210,74 @@ background:#444;
 
 <h2>Rafting em Jaciara</h2>
 
-<p>🌊 Rio Tenente Amaral</p>
+<p>Rio Tenente Amaral</p>
 
-<button onclick="mostrar('rafting')">Ver detalhes</button>
+<button onclick="mostrar('Rafting em Jaciara')">
+
+Ver detalhes
+
+</button>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
 <div id="detalhes"></div>
 
+</div>
+
 <footer>
 
-<p>Após realizar o pagamento envie o comprovante no WhatsApp.</p>
+<p>Após realizar o pagamento envie o comprovante no WhatsApp</p>
 
-<p>WhatsApp: 66 99692-6174</p>
+<p>📲 66 99692-6174</p>
 
 </footer>
 
 <script>
 
-let vagas = {
-lagoa:28,
-chico:28,
-rafting:28
+let vagas={
+"Lagoa Azul":28,
+"Vale do Chico":28,
+"Rafting em Jaciara":28
 }
 
 function copiarPix(){
 
 navigator.clipboard.writeText("trilheiros.roomt@gmail.com")
-alert("PIX copiada: trilheiros.roomt@gmail.com")
+
+alert("PIX copiada!")
 
 }
 
 function voltar(){
 
 document.getElementById("detalhes").innerHTML=""
+
 document.getElementById("inicio").style.display="grid"
+
+}
+
+function enviar(tipo){
+
+let nome=document.getElementById("nome").value
+
+if(nome==""){
+alert("Digite seu nome")
+return
+}
+
+vagas[tipo]--
+
+let mensagem="Olá! Meu nome é "+nome+"%0A"+
+"Passeio: "+tipo+"%0A"+
+"Após pagamento clico para enviar comprovante no WhatsApp."
+
+window.open("https://wa.me/5566996926174?text="+mensagem)
+
+voltar()
 
 }
 
@@ -199,17 +285,15 @@ function mostrar(tipo){
 
 document.getElementById("inicio").style.display="none"
 
-let html=""
+let info=""
 
-if(tipo==="lagoa"){
+if(tipo=="Lagoa Azul"){
 
-html=`
+info=`
 
-<section class="section">
+<h2>Lagoa Azul</h2>
 
-<h2>💙 Lagoa Azul</h2>
-
-<p class="vagas">Restam ${vagas.lagoa} vagas</p>
+<p class="vagas">Vagas restantes: ${vagas[tipo]}</p>
 
 <p>
 
@@ -222,58 +306,30 @@ html=`
 
 </p>
 
-<h3>Valores</h3>
+<p>
 
-<p>Adulto PIX: R$336</p>
-<p>Adulto Cartão: R$340</p>
-<p>Criança até 10 anos: R$280</p>
-<p>Veículo próprio: R$215</p>
+Adulto PIX 336<br>
+Cartão 340<br>
+Criança até 10 anos 280<br>
+Veículo próprio 215
 
-<h3>Calcular valor PIX</h3>
-
-Adultos
-<input id="adulto" type="number" value="1">
-
-Crianças
-<input id="crianca" type="number" value="0">
-
-<br>
-
-<button onclick="calcLagoa()">Calcular</button>
-
-<p id="total"></p>
-
-<button onclick="copiarPix()">Pagar com PIX</button>
+</p>
 
 <a href="https://mpago.li/2yrVFJQ">
 <button>Cartão</button>
 </a>
 
-<br>
-
-<a href="https://wa.me/5566996926174?text=Olá!%20Envio%20comprovante%20Lagoa%20Azul">
-<button>Enviar comprovante</button>
-</a>
-
-<br>
-
-<button class="voltar" onclick="voltar()">⬅ Voltar</button>
-
-</section>
-
 `
 
 }
 
-if(tipo==="chico"){
+if(tipo=="Vale do Chico"){
 
-html=`
+info=`
 
-<section class="section">
+<h2>Vale do Chico</h2>
 
-<h2>🌿 Vale do Chico</h2>
-
-<p class="vagas">Restam ${vagas.chico} vagas</p>
+<p class="vagas">Vagas restantes: ${vagas[tipo]}</p>
 
 <p>
 
@@ -284,124 +340,97 @@ html=`
 
 </p>
 
-<h3>Valores</h3>
+<p>
 
-<p>Individual PIX: R$365</p>
-<p>Cartão: R$379</p>
-<p>Casal PIX: R$700</p>
-<p>Cartão: R$729</p>
-<p>Criança PIX: R$295</p>
-<p>Cartão: R$309</p>
+Individual PIX 365<br>
+Cartão 379<br>
+Casal PIX 700<br>
+Cartão 729<br>
+Criança PIX 295<br>
+Cartão 309
 
-<h3>Calcular valor PIX</h3>
-
-Adultos
-<input id="adulto" type="number" value="1">
-
-Crianças
-<input id="crianca" type="number" value="0">
-
-<br>
-
-<button onclick="calcChico()">Calcular</button>
-
-<p id="total"></p>
-
-<button onclick="copiarPix()">Pagar com PIX</button>
+</p>
 
 <a href="https://mpago.li/2HA5tTm">
-<button>Cartão</button>
+<button>Cartão Individual</button>
 </a>
 
-<br>
-
-<a href="https://wa.me/5566996926174?text=Olá!%20Envio%20comprovante%20Vale%20do%20Chico">
-<button>Enviar comprovante</button>
+<a href="https://mpago.li/1YDjw3N">
+<button>Cartão Casal</button>
 </a>
-
-<br>
-
-<button class="voltar" onclick="voltar()">⬅ Voltar</button>
-
-</section>
 
 `
 
 }
 
-if(tipo==="rafting"){
+if(tipo=="Rafting em Jaciara"){
 
-html=`
+info=`
 
-<section class="section">
+<h2>Rafting em Jaciara</h2>
 
-<h2>🌊 Rafting em Jaciara</h2>
-
-<p class="vagas">Restam ${vagas.rafting} vagas</p>
+<p class="vagas">Vagas restantes: ${vagas[tipo]}</p>
 
 <p>
 
-✔ Transporte ida e volta<br>
+✔ Transporte<br>
 ✔ Equipamentos de segurança<br>
 ✔ Guia especializado<br>
-✔ Seguro individual
+✔ Seguro
 
 </p>
 
-<h3>Valores</h3>
+<p>
 
-<p>PIX: R$325</p>
-<p>Cartão: R$335</p>
+PIX 325<br>
+Cartão 335
 
-<button onclick="copiarPix()">Pagar com PIX</button>
+</p>
 
 <a href="https://mpago.li/33bGqHg">
 <button>Cartão</button>
 </a>
 
-<br>
-
-<a href="https://wa.me/5566996926174?text=Olá!%20Envio%20comprovante%20Rafting">
-<button>Enviar comprovante</button>
-</a>
-
-<br>
-
-<button class="voltar" onclick="voltar()">⬅ Voltar</button>
-
-</section>
-
 `
 
 }
 
-document.getElementById("detalhes").innerHTML = html
+document.getElementById("detalhes").innerHTML=`
 
-}
+<section class="section">
 
-function calcLagoa(){
+${info}
 
-let a=document.getElementById("adulto").value
-let c=document.getElementById("crianca").value
+<br>
 
-let total=(a*336)+(c*280)
+<input id="nome" placeholder="Digite seu nome">
 
-document.getElementById("total").innerText="Total PIX: R$ "+total
+<br>
 
-}
+<button onclick="copiarPix()">Copiar PIX</button>
 
-function calcChico(){
+<button onclick="enviar('${tipo}')">
 
-let a=document.getElementById("adulto").value
-let c=document.getElementById("crianca").value
+Após pagamento clique para enviar comprovante no WhatsApp
 
-let total=(a*365)+(c*295)
+</button>
 
-document.getElementById("total").innerText="Total PIX: R$ "+total
+<br>
+
+<button class="voltar" onclick="voltar()">
+
+Voltar
+
+</button>
+
+</section>
+
+`
 
 }
 
 </script>
 
 </body>
+
 </html>
